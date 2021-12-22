@@ -1,0 +1,21 @@
+mat-toolbar{
+  border-bottom: 5px outset #EB984E;
+}
+
+mat-toolbar-row{
+  height: auto;
+  padding: 5px 25px 5px 5px;
+  .profile-img{
+    border-radius: 20%;
+    height: 60px;
+    width: 60px;
+  }
+}
+
+mat-icon{
+  font-size: 35px;
+}
+
+ul li {
+  list-style: none;
+}

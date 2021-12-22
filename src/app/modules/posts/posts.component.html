@@ -1,0 +1,13 @@
+<p>Welcome <b>{{oktaAuth.userName}}</b></p>
+
+<p>AccessToken <br><b>{{oktaAuth.accessToken}}</b></p>
+
+<p>Expires At : <b>{{oktaAuth.expiresAt}}</b></p>
+
+<p>RefreshToken<br> <b>{{oktaAuth.refreshToken}}</b></p>
+
+<br><br>
+<button mat-raised-button color="accent" (click)="refreshTokens()">Refresh Tokens</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button mat-raised-button color="accent" (click)="initiateOktaLogut()">Logout</button>
+<br><br>
