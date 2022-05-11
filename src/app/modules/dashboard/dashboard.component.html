@@ -1,3 +1,10 @@
 <p>dashboard works!</p>
 <br>
 <button mat-raised-button color="accent" (click)="initiateOktaLogin()">Okta SignIn</button>
+<br/><br/><br/>
+<div>
+  <form [formGroup]="formGroup">
+    <app-agency-multi-select-autocomplete formControlName="agencyIds">
+    </app-agency-multi-select-autocomplete>
+  </form>
+</div>

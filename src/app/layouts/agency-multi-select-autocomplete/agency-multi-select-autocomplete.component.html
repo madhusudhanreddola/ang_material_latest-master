@@ -1,0 +1,22 @@
+<mat-label>Agency:</mat-label>
+<mat-form-field class="agency-chip-list" appearance="outline">
+  <mat-chip-list #agencyList aria-label="Agency selection">
+    <mat-chip *ngFor="let agency of agencies"
+              (removed)="remove(agency)">
+      {{agency.agencyName}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+    <input
+      [formControl]="agencyControl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="agencyList"
+      [matChipInputSeparatorKeyCodes]="SEPARATOR_KEY_CODES"
+      (matChipInputTokenEnd)="add($event)"
+      #agencyInput>
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let agency of filteredAgencies | async" [value]="agency">
+      {{agency.agencyName}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
