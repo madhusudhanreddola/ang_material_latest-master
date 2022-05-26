@@ -4,6 +4,7 @@ import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
+import { NestedDatatableComponent } from './layouts/nested-datatable/nested-datatable.component';
 
 
 const routes: Routes = [{
@@ -19,6 +20,10 @@ const routes: Routes = [{
   }, {
     path : 'oktacallback',
     component: OktaCallbackComponent
+  },
+  {
+    path: 'nested-datatable',
+    component: NestedDatatableComponent
   }]
 }];
 

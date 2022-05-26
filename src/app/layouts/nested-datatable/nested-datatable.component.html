@@ -1,0 +1,27 @@
+<div>
+  <ngx-datatable class="material"
+                 [rows]="rows"
+                 [columns]="columns"
+                 [headerHeight]="50"
+                 [footerHeight]="50"
+                 [limit]="10"
+                 columnMode="force"
+                 selectionType="single"
+                 (select)="onSelectProduct($event)"
+                 rowHeight="auto"
+                 #myTable>
+    <!-- Row Detail Template -->
+    <ngx-datatable-row-detail [rowHeight]="230" #myDetailRow>
+      <ng-template let-row="row" ngx-datatable-row-detail-template>
+        <ngx-datatable class="material"
+                       [rows]="row.prices"
+                       [columns]="internalColumns"
+                       [headerHeight]="50"
+                       [footerHeight]="50"
+                       columnMode="force"
+                       rowHeight="auto">
+        </ngx-datatable>
+      </ng-template>
+    </ngx-datatable-row-detail>
+  </ngx-datatable>
+</div>

@@ -1,4 +1,7 @@
 @import '~@angular/material/theming';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 @include mat-core();
 
 /*For each palette, you can optionally specify a default, lighter, and darkerhue. Available color palettes: https://material.io/design/color*/
