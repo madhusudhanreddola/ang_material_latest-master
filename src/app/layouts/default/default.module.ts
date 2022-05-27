@@ -11,13 +11,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {
   AgencyMultiSelectAutocompleteComponent
 } from '../agency-multi-select-autocomplete/agency-multi-select-autocomplete.component';
-import {MatChipsModule} from "@angular/material/chips";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatIconModule} from "@angular/material/icon";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {ReactiveFormsModule} from "@angular/forms";
-import {NestedDatatableComponent} from "../nested-datatable/nested-datatable.component";
-import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {ReactiveFormsModule} from '@angular/forms';
+import {NestedDatatableComponent} from '../nested-datatable/nested-datatable.component';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [

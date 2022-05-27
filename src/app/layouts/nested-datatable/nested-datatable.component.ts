@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import * as XLSX from 'xlsx';
+import {DatePipe} from '@angular/common';
 
 interface Product {
   id: number;
@@ -27,7 +29,8 @@ export class NestedDatatableComponent implements OnInit {
   columns = [{prop: 'name'}, {name : 'Gender'}, {name: 'Size'}];
   internalColumns = [{name: 'Vendor'}, {name: 'Price'}];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.httpClient.get<Product[]>('api/products')
@@ -40,5 +43,16 @@ export class NestedDatatableComponent implements OnInit {
         $event.selected[0].prices = priceList;
         this.table.rowDetail.toggleExpandRow($event.selected[0]);
       });
+  }
+
+  exportToExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.rows);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, `Export-${this.datePipe.transform(new Date(), 'ddMMyyyy_HHmmss')}.xlsx`);
   }
 }
