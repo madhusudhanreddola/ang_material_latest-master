@@ -41,6 +41,7 @@ export class NestedDatatableComponent implements OnInit {
   }
 
   onSelectProduct($event): void {
+    //TO-Do:: Pass product Id and Get prices Array
     this.httpClient.get<Price[]>('api/prices')
       .subscribe(priceList => {
         $event.selected[0].prices = priceList;
