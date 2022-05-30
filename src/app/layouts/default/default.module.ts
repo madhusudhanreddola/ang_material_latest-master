@@ -15,9 +15,10 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NestedDatatableComponent} from '../nested-datatable/nested-datatable.component';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     MatIconModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class DefaultModule { }

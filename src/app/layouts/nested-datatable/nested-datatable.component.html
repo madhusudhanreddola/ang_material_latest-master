@@ -1,11 +1,16 @@
 <div>
-  <button mat-raised-button color="accent" (click)="exportToExcel()">Export</button><br/><br/>
+  <button mat-raised-button color="accent" (click)="exportToExcel()">Export</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Page:</mat-label>
+    <input matInput type="number" min="1" [max]="rows?.length" [(ngModel)]="goToPage">
+  </mat-form-field>
   <ngx-datatable class="material"
                  [rows]="rows"
                  [columns]="columns"
                  [headerHeight]="50"
                  [footerHeight]="50"
-                 [limit]="10"
+                 [offset]="(goToPage !== undefined) ? (goToPage -1) : 0"
+                 [limit]="2"
                  columnMode="force"
                  selectionType="single"
                  (select)="onSelectProduct($event)"

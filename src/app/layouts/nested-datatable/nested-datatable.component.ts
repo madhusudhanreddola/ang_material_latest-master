@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import * as XLSX from 'xlsx';
 import {DatePipe} from '@angular/common';
+import {DatatableComponent} from '@swimlane/ngx-datatable';
 
 interface Product {
   id: number;
@@ -23,11 +24,13 @@ interface Price {
   styleUrls: ['./nested-datatable.component.scss']
 })
 export class NestedDatatableComponent implements OnInit {
-  @ViewChild('myTable') table: any;
+  @ViewChild(DatatableComponent) table: DatatableComponent;
 
   rows: Product[];
   columns = [{prop: 'name'}, {name : 'Gender'}, {name: 'Size'}];
   internalColumns = [{name: 'Vendor'}, {name: 'Price'}];
+
+  goToPage: number;
 
   constructor(private httpClient: HttpClient,
               private datePipe: DatePipe) { }
