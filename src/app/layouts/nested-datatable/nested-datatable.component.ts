@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import * as XLSX from 'xlsx';
 import {DatePipe} from '@angular/common';
 import {DatatableComponent} from '@swimlane/ngx-datatable';
@@ -41,8 +41,9 @@ export class NestedDatatableComponent implements OnInit {
   }
 
   onSelectProduct($event): void {
-    //TO-Do:: Pass product Id and Get prices Array
-    this.httpClient.get<Price[]>('api/prices')
+    const httpParams = new HttpParams().set('productId', $event.selected[0]?.productId);
+
+    this.httpClient.get<Price[]>('api/prices', {params: httpParams})
       .subscribe(priceList => {
         $event.selected[0].prices = priceList;
         this.table.rowDetail.toggleExpandRow($event.selected[0]);
@@ -58,5 +59,9 @@ export class NestedDatatableComponent implements OnInit {
 
     /* save to file */
     XLSX.writeFile(wb, `Export-${this.datePipe.transform(new Date(), 'ddMMyyyy_HHmmss')}.xlsx`);
+  }
+
+  getHeight(row: any, index: number): number {
+    return row?.prices?.length * 2;
   }
 }
