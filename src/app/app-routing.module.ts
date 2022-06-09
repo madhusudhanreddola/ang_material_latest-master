@@ -6,25 +6,28 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { NestedDatatableComponent } from './layouts/nested-datatable/nested-datatable.component';
 
-
 const routes: Routes = [{
   path: '',
   component: DefaultComponent,
-  children: [{
-    path: '',
-    component: DashboardComponent
-  }, {
-    path: 'posts',
-    component: PostsComponent,
-    canActivate: [OktaAuthGuard]
-  }, {
-    path : 'oktacallback',
-    component: OktaCallbackComponent
-  },
-  {
-    path: 'nested-datatable',
-    component: NestedDatatableComponent
-  }]
+  children: [
+    {
+      path: '',
+      component: DashboardComponent
+    },
+    {
+      path: 'posts',
+      component: PostsComponent,
+      canActivate: [OktaAuthGuard]
+    },
+    {
+      path: 'oktacallback',
+      component: OktaCallbackComponent
+    },
+    {
+      path: 'nested-datatable',
+      component: NestedDatatableComponent
+    }
+  ]
 }];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import * as XLSX from 'xlsx';
 import {DatePipe} from '@angular/common';
 import {DatatableComponent} from '@swimlane/ngx-datatable';
