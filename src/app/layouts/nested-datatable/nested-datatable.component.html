@@ -26,6 +26,48 @@
                        [footerHeight]="50"
                        columnMode="force"
                        rowHeight="auto">
+          <ngx-datatable-column name="Vendor">
+            <ng-template let-innerrow="row" let-value="value" ngx-datatable-cell-template>
+              <ng-container *ngIf="innerrow.editing">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <input type="text" matInput [(ngModel)]="innerrow.vendor">
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngIf="!innerrow.editing">
+                {{value}}
+              </ng-container>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Price">
+            <ng-template let-innerrow="row" let-value="value" ngx-datatable-cell-template>
+              <ng-container *ngIf="innerrow.editing">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <input type="number" matInput [(ngModel)]="innerrow.price">
+                </mat-form-field>
+              </ng-container>
+              <ng-container *ngIf="!innerrow.editing">
+                {{value}}
+              </ng-container>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Edit">
+            <ng-template let-innerrow="row" ngx-datatable-cell-template>
+              <ng-container *ngIf="!innerrow.editing">
+                <button mat-raised-button color="accent" (click)="onEdit(innerrow)">Edit</button>
+              </ng-container>
+              <ng-container *ngIf="innerrow.editing">
+                <button mat-raised-button color="accent" (click)="onEdit(innerrow)">Save</button>
+              </ng-container>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Delete">
+            <ng-template ngx-datatable-cell-template>
+              <button mat-raised-button color="accent">Delete</button>
+            </ng-template>
+          </ngx-datatable-column>
         </ngx-datatable>
       </ng-template>
     </ngx-datatable-row-detail>

@@ -15,7 +15,7 @@ interface Product {
 interface Price {
   id: number;
   vendor: string;
-  price: string;
+  price: number;
 }
 
 @Component({
@@ -28,9 +28,10 @@ export class NestedDatatableComponent implements OnInit {
 
   rows: Product[];
   columns = [{prop: 'name'}, {name : 'Gender'}, {name: 'Size'}];
-  internalColumns = [{name: 'Vendor'}, {name: 'Price'}];
+  internalColumns = [{name: 'Vendor'}, {name: 'Price'}, {name: 'Edit'}, {name: 'Delete'}];
 
   goToPage: number;
+  editing = {};
 
   constructor(private httpClient: HttpClient,
               private datePipe: DatePipe) { }
@@ -63,5 +64,9 @@ export class NestedDatatableComponent implements OnInit {
 
   getHeight(row: any, index: number): number {
     return row?.prices?.length * 2;
+  }
+
+  onEdit(row): void {
+    row.editing = !row.editing;
   }
 }
