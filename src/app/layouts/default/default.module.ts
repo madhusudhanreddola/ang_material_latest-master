@@ -19,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NestedDatatableComponent} from '../nested-datatable/nested-datatable.component';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatInputModule} from '@angular/material/input';
     ReactiveFormsModule,
     NgxDatatableModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ]
 })
 export class DefaultModule { }

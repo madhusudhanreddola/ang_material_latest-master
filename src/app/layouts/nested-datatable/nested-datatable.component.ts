@@ -31,7 +31,7 @@ export class NestedDatatableComponent implements OnInit {
   internalColumns = [{name: 'Vendor'}, {name: 'Price'}, {name: 'Edit'}, {name: 'Delete'}];
 
   goToPage: number;
-  editing = {};
+  vendorOptions = ['Amazon', 'Flipkart', 'Snapdeal', 'Myntra', 'Ajio'];
 
   constructor(private httpClient: HttpClient,
               private datePipe: DatePipe) { }

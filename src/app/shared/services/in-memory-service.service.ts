@@ -36,19 +36,19 @@ export class InMemoryService implements InMemoryDbService {
       },
       {
         priceId: 3,
-        vendor: 'Flipkart 3',
+        vendor: 'Snapdeal',
         price: 599,
         productId: 2,
       },
       {
         priceId: 4,
-        vendor: 'Flipkart 4',
+        vendor: 'Myntra',
         price: 599,
         productId: 3,
       },
       {
         priceId: 5,
-        vendor: 'Flipkart 5',
+        vendor: 'Ajio',
         price: 599,
         productId: 4,
       },
