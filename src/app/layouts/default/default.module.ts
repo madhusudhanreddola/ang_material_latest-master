@@ -22,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {PhoneNumberMaskComponent} from '../phone-number-mask/phone-number-mask.component';
 import {TextMaskModule} from 'angular2-text-mask';
+import {MadhuTestLibModule} from 'madhu-test-lib';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {TextMaskModule} from 'angular2-text-mask';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    TextMaskModule
+    TextMaskModule,
+    MadhuTestLibModule
   ]
 })
 export class DefaultModule { }
