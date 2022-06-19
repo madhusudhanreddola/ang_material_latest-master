@@ -10,6 +10,7 @@ import {InMemoryService} from './shared/services/in-memory-service.service';
 import {DatePipe} from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ResponseInterceptorService} from './shared/services/response-interceptor.service';
+import {TextMaskModule} from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {ResponseInterceptorService} from './shared/services/response-interceptor
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule,
+    TextMaskModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryService),
   ],
   providers: [

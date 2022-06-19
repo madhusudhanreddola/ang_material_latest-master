@@ -20,6 +20,8 @@ import {NestedDatatableComponent} from '../nested-datatable/nested-datatable.com
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {PhoneNumberMaskComponent} from '../phone-number-mask/phone-number-mask.component';
+import {TextMaskModule} from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardComponent,
     PostsComponent,
     AgencyMultiSelectAutocompleteComponent,
-    NestedDatatableComponent
+    NestedDatatableComponent,
+    PhoneNumberMaskComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
     NgxDatatableModule,
     MatInputModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    TextMaskModule
   ]
 })
 export class DefaultModule { }

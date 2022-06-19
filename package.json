@@ -26,6 +26,7 @@
     "@okta/okta-auth-js": "^5.8.0",
     "@swimlane/ngx-datatable": "^20.0.0",
     "angular-in-memory-web-api": "^0.9.0",
+    "angular2-text-mask": "^9.0.0",
     "highcharts": "^8.1.2",
     "highcharts-angular": "^2.4.0",
     "rxjs": "~6.5.4",

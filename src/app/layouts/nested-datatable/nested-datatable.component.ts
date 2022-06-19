@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import * as XLSX from 'xlsx';
 import {DatePipe} from '@angular/common';
 import {DatatableComponent} from '@swimlane/ngx-datatable';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 interface Product {
   id: number;
@@ -24,6 +25,7 @@ interface Price {
   styleUrls: ['./nested-datatable.component.scss']
 })
 export class NestedDatatableComponent implements OnInit {
+  public formGroup: FormGroup;
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
   rows: Product[];
@@ -34,7 +36,12 @@ export class NestedDatatableComponent implements OnInit {
   vendorOptions = ['Amazon', 'Flipkart', 'Snapdeal', 'Myntra', 'Ajio'];
 
   constructor(private httpClient: HttpClient,
-              private datePipe: DatePipe) { }
+              private datePipe: DatePipe,
+              private formBuilder: FormBuilder) {
+    this.formGroup = this.formBuilder.group({
+      phoneNumber: [undefined]
+    });
+  }
 
   ngOnInit(): void {
     this.httpClient.get<Product[]>('api/products')
