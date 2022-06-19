@@ -82,5 +82,14 @@
 <div>
   <form [formGroup]="formGroup">
     <app-phone-number-mask formControlName="phoneNumber"></app-phone-number-mask>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Email:</mat-label>
+      <input type="text" matInput formControlName="emailAddress">
+      <mat-error *ngIf="emailFormControl.hasError('overTheLength')">
+        Email address shouldn't have more than {{emailMaxLength}} characters;
+      </mat-error>
+    </mat-form-field>
   </form>
 </div>

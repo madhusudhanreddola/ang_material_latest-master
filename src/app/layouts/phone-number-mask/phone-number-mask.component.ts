@@ -5,7 +5,6 @@ import {conformToMask} from 'angular2-text-mask';
 @Component({
   selector: 'app-phone-number-mask',
   templateUrl: './phone-number-mask.component.html',
-  styleUrls: ['./phone-number-mask.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

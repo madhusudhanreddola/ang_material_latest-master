@@ -3,7 +3,8 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import * as XLSX from 'xlsx';
 import {DatePipe} from '@angular/common';
 import {DatatableComponent} from '@swimlane/ngx-datatable';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
+import {CustomValidators} from '../default/custom.validators';
 
 interface Product {
   id: number;
@@ -26,6 +27,7 @@ interface Price {
 })
 export class NestedDatatableComponent implements OnInit {
   public formGroup: FormGroup;
+  public emailMaxLength = 20;
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
   rows: Product[];
@@ -39,8 +41,13 @@ export class NestedDatatableComponent implements OnInit {
               private datePipe: DatePipe,
               private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
-      phoneNumber: [undefined]
+      phoneNumber: [undefined],
+      emailAddress: [undefined, CustomValidators.validateCustomLength(this.emailMaxLength)]
     });
+  }
+
+  public get emailFormControl(): AbstractControl {
+    return this.formGroup.get('emailAddress');
   }
 
   ngOnInit(): void {
